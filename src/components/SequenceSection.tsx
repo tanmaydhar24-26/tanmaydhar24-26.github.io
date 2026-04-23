@@ -53,11 +53,11 @@ function ThemeLayer({ theme }: { theme: JourneyTheme }) {
 
   if (theme === "tiles") {
     return (
-      <div className="absolute inset-0 -z-10 opacity-20">
+      <div className="absolute inset-0 -z-10 opacity-40">
         <div 
           className="w-full h-full"
           style={{
-            backgroundImage: "radial-gradient(circle at 2px 2px, rgba(45,106,79,0.3) 1px, transparent 0)",
+            backgroundImage: "radial-gradient(circle at 2px 2px, rgba(45,106,79,0.4) 1px, transparent 0)",
             backgroundSize: "40px 40px"
           }}
         />
@@ -67,7 +67,7 @@ function ThemeLayer({ theme }: { theme: JourneyTheme }) {
 
   if (theme === "radar") {
     return (
-      <div className="absolute inset-0 -z-10 flex items-center justify-center opacity-20">
+      <div className="absolute inset-0 -z-10 flex items-center justify-center opacity-45">
         <motion.div 
           className="w-[600px] h-[600px] rounded-full border border-[#2D6A4F]/30 relative"
           animate={{ rotate: 360 }}
@@ -141,7 +141,7 @@ function ThemeLayer({ theme }: { theme: JourneyTheme }) {
 
   if (theme === "waterfall") {
     return (
-      <div className="absolute inset-0 -z-10 flex h-full items-end justify-around px-10 opacity-20">
+      <div className="absolute inset-0 -z-10 flex h-full items-end justify-around px-10 opacity-40">
         {[...Array(15)].map((_, i) => (
           <motion.div
             key={i}
@@ -161,7 +161,7 @@ function ThemeLayer({ theme }: { theme: JourneyTheme }) {
 
   if (theme === "bar") {
     return (
-      <div className="absolute inset-0 -z-10 flex h-full items-center justify-center opacity-15">
+      <div className="absolute inset-0 -z-10 flex h-full items-center justify-center opacity-35">
         <div className="flex items-end gap-2 h-1/3">
           {[...Array(12)].map((_, i) => (
             <motion.div
@@ -180,7 +180,7 @@ function ThemeLayer({ theme }: { theme: JourneyTheme }) {
 
   if (theme === "graphs") {
     return (
-      <div className="absolute inset-0 -z-10 opacity-25 overflow-hidden">
+      <div className="absolute inset-0 -z-10 opacity-45 overflow-hidden">
         <svg className="w-full h-full" viewBox="0 0 1000 1000" preserveAspectRatio="none">
           {/* Main trading line */}
           <motion.path
@@ -251,7 +251,7 @@ export default function SequenceSection({ id, frame, blur = 12, theme = "tiles",
       <ThemeLayer theme={theme} />
 
       {/* Overall Overlays for depth */}
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-[#090909]/60 via-transparent to-[#090909]/60" />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-[#090909]/40 via-transparent to-[#090909]/40" />
       
       {/* Section Content */}
       <div className="relative z-10">{children}</div>

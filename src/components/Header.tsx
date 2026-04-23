@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { FaLinkedin } from "react-icons/fa";
 
 const frameSrc = (frame: number) => {
   const bounded = Math.max(0, Math.min(119, frame));
@@ -38,14 +39,14 @@ function NavTab({ id, label, href, frame, active, mobile = false }: NavTabProps)
       href={href}
       whileHover={{ y: -1 }}
       whileTap={{ scale: 0.98 }}
-      className={`group relative shrink-0 overflow-hidden rounded-xl border transition-colors duration-300 [transform-style:preserve-3d] ${
+      className={`group relative shrink-0 overflow-hidden rounded-xl transition-colors duration-300 [transform-style:preserve-3d] ${
         mobile
           ? "px-3 py-2 text-[11px]"
           : "px-4 py-2 text-xs tracking-widest uppercase"
       } ${
         active
-          ? "border-[#C9A84C]/60 text-[#F5D88A]"
-          : "border-white/10 text-gray-400 hover:text-white"
+          ? "text-[#F5D88A]"
+          : "text-gray-400 hover:text-white"
       }`}
     >
       <motion.span
@@ -115,7 +116,7 @@ export default function Header() {
     <motion.header 
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className="fixed top-0 left-0 w-full z-50 bg-[#121212]/80 backdrop-blur-md border-b border-white/5 shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
+      className="fixed top-0 left-0 w-full z-50 bg-[#121212]/80 backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
     >
       <motion.div
         aria-hidden
@@ -124,7 +125,7 @@ export default function Header() {
         animate={{ backgroundPosition: ["40% 35%", "60% 45%", "40% 35%"] }}
         transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
       />
-      <div className="max-w-7xl mx-auto px-4 lg:px-6 h-16 lg:h-20 flex items-center justify-center relative">
+      <div className="max-w-7xl mx-auto px-4 lg:px-6 h-16 lg:h-20 flex items-center justify-between relative">
         <nav className="hidden lg:flex items-center gap-4">
           {links.map((link) => (
             <NavTab
@@ -138,7 +139,7 @@ export default function Header() {
           ))}
         </nav>
 
-        <nav className="lg:hidden w-full overflow-x-auto no-scrollbar">
+        <nav className="lg:hidden flex-1 overflow-x-auto no-scrollbar">
           <div className="flex items-center gap-2 min-w-max pr-2">
             {links.map((link) => (
               <NavTab
@@ -153,6 +154,18 @@ export default function Header() {
             ))}
           </div>
         </nav>
+
+        <div className="flex items-center ml-4">
+          <a 
+            href="https://www.linkedin.com/in/tanmay-dhar-business-analyst-data-scientist-data-analyst" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-[#C9A84C] hover:text-white text-2xl transition-colors"
+            title="LinkedIn Profile"
+          >
+            <FaLinkedin />
+          </a>
+        </div>
       </div>
     </motion.header>
   );
