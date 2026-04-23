@@ -88,7 +88,7 @@ export default function About() {
                 I am a Data Enthusiast currently pursuing an MBA in Business Analytics & Data Science, blending engineering precision with strategic business intelligence.
               </p>
               <p className="border-l-4 border-[#C9A84C] pl-6 py-2 my-6 font-light text-xl text-white/90 italic bg-white/5 rounded-r-lg">
-                "Strong ownership, communication, and structured thinking with the ability to support leadership through insights, reporting, and the end-to-end execution of strategic tasks."
+                &quot;Strong ownership, communication, and structured thinking with the ability to support leadership through insights, reporting, and the end-to-end execution of strategic tasks.&quot;
               </p>
               <p>
                 With hands-on experience in machine learning, KPI tracking, and cross-functional coordination, my goal is to transform raw data into actionable insights that drive real-world business decisions.
@@ -97,7 +97,7 @@ export default function About() {
             
             <div className="mt-8 flex flex-wrap gap-4 justify-center lg:justify-start">
               <a href="#contact" className="bg-[#2D6A4F] text-white px-8 py-3 rounded-full font-bold hover:bg-[#1A362D] transition-colors shadow-[0_0_15px_rgba(45,106,79,0.4)]">
-                Let's Talk
+                Let&apos;s Talk
               </a>
               <a href="/TanmayDhar.pdf" download className="glass-panel text-white px-8 py-3 rounded-full font-bold hover:bg-white/10 transition-colors border border-white/10">
                 Download CV
