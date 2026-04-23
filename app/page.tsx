@@ -39,7 +39,7 @@ export default function Home() {
             <FaLinkedin size={28} />
           </a>
           <a
-            href="mailto:tanmaydhar24@example.com"
+            href="mailto:tanmaydhar24-26@github.com"
             aria-label="Email"
             className="text-slate-400 hover:text-slate-100 transition-colors"
           >
