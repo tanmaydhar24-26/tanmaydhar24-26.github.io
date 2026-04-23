@@ -28,11 +28,18 @@ export default function Contact() {
                   <div className="font-bold text-white">tanmaydhar36@icloud.com</div>
                 </div>
               </a>
-              <a href="https://www.linkedin.com/in/tanmay-dhar-business-analyst-data-scientist-data-analyst" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 glass-panel p-4 rounded-2xl hover:bg-white/5 transition-colors">
-                <div className="w-10 h-10 bg-[#2D6A4F]/20 text-[#2D6A4F] rounded-full flex items-center justify-center border border-[#2D6A4F]/30 text-xl"><FaLinkedin /></div>
+              <a 
+                href="https://www.linkedin.com/in/tanmay-dhar-business-analyst-data-scientist-data-analyst/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center gap-4 glass-panel p-5 rounded-2xl bg-white/5 hover:bg-white/10 transition-all border border-white/10 hover:border-[#C9A84C]/50 group"
+              >
+                <div className="w-12 h-12 bg-[#C9A84C]/20 text-[#C9A84C] rounded-full flex items-center justify-center border border-[#C9A84C]/30 text-2xl group-hover:scale-110 transition-transform">
+                  <FaLinkedin />
+                </div>
                 <div>
                   <div className="text-[10px] font-bold tracking-widest text-gray-500 uppercase">LinkedIn</div>
-                  <div className="font-bold text-white">Tanmay Dhar</div>
+                  <div className="font-bold text-white text-lg">Connect on LinkedIn</div>
                 </div>
               </a>
               <a href="https://github.com/TanmayDhar36" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 glass-panel p-4 rounded-2xl hover:bg-white/5 transition-colors">
