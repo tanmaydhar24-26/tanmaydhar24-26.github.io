@@ -54,12 +54,10 @@ const experiences = [
   }
 ];
 
-import AnimatedBackground from "./AnimatedBackground";
 
 export default function Experience() {
   return (
-    <section className="py-24 px-6 md:px-12 bg-[#121212] relative z-20 isolate overflow-hidden">
-      <AnimatedBackground variant="cylinder" />
+    <section className="py-24 px-6 md:px-12 bg-transparent relative z-20 isolate overflow-hidden">
       <div className="max-w-4xl mx-auto relative z-10">
         <div className="text-center mb-24">
           <p className="text-gradient-gold text-sm font-bold tracking-widest uppercase mb-2">My Journey</p>

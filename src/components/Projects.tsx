@@ -140,12 +140,10 @@ const TiltCard = ({ project, index }: { project: typeof projects[0], index: numb
   );
 };
 
-import AnimatedBackground from "./AnimatedBackground";
 
 export default function Projects() {
   return (
-    <section className="py-24 px-6 md:px-12 bg-[#090909] relative z-20 isolate overflow-hidden">
-      <AnimatedBackground variant="scatter" />
+    <section className="py-24 px-6 md:px-12 bg-transparent relative z-20 isolate overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
           <p className="text-gradient-gold text-sm font-bold tracking-widest uppercase mb-2">My Portfolio</p>

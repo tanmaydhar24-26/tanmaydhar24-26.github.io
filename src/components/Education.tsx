@@ -17,12 +17,10 @@ const cardVariants = {
   show: { opacity: 1, y: 0, scale: 1, transition: { type: "spring" as const, bounce: 0.4, duration: 0.8 } }
 };
 
-import AnimatedBackground from "./AnimatedBackground";
 
 export default function Education() {
   return (
-    <section className="py-24 px-6 md:px-12 bg-[#121212] relative z-20 isolate overflow-hidden">
-      <AnimatedBackground variant="globe" />
+    <section className="py-24 px-6 md:px-12 bg-transparent relative z-20 isolate overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: -20 }}

@@ -3,12 +3,10 @@
 import { motion } from "framer-motion";
 import { FaEnvelope, FaLinkedin, FaGithub, FaFileDownload, FaPaperPlane } from "react-icons/fa";
 
-import AnimatedBackground from "./AnimatedBackground";
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-24 px-6 md:px-12 bg-[#090909] relative z-20 isolate overflow-hidden border-t border-white/5">
-      <AnimatedBackground variant="radar" />
+    <section id="contact" className="py-24 px-6 md:px-12 bg-transparent relative z-20 isolate overflow-hidden">
       <div className="max-w-4xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           
@@ -30,7 +28,7 @@ export default function Contact() {
                   <div className="font-bold text-white">tanmaydhar36@icloud.com</div>
                 </div>
               </a>
-              <a href="https://linkedin.com/in/TanmayDhar" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 glass-panel p-4 rounded-2xl hover:bg-white/5 transition-colors">
+              <a href="https://www.linkedin.com/in/tanmay-dhar-business-analyst-data-scientist-data-analyst" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 glass-panel p-4 rounded-2xl hover:bg-white/5 transition-colors">
                 <div className="w-10 h-10 bg-[#2D6A4F]/20 text-[#2D6A4F] rounded-full flex items-center justify-center border border-[#2D6A4F]/30 text-xl"><FaLinkedin /></div>
                 <div>
                   <div className="text-[10px] font-bold tracking-widest text-gray-500 uppercase">LinkedIn</div>
