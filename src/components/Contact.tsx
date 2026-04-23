@@ -3,10 +3,13 @@
 import { motion } from "framer-motion";
 import { FaEnvelope, FaLinkedin, FaGithub, FaFileDownload, FaPaperPlane } from "react-icons/fa";
 
+import AnimatedBackground from "./AnimatedBackground";
+
 export default function Contact() {
   return (
-    <section className="py-24 px-6 md:px-12 bg-[#121212] relative z-20 isolate overflow-hidden">
-      <div className="max-w-6xl mx-auto">
+    <section id="contact" className="py-24 px-6 md:px-12 bg-[#090909] relative z-20 isolate overflow-hidden border-t border-white/5">
+      <AnimatedBackground variant="radar" />
+      <div className="max-w-4xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           
           {/* Left Column */}

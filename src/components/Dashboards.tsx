@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import AnimatedBackground from "./AnimatedBackground";
 
 const dashboards = [
   { src: "/dashboards/hr_analytics_dashboard.jpeg", title: "HR Analytics Dashboard" },
@@ -31,8 +32,9 @@ export default function Dashboards() {
   }, []);
 
   return (
-    <section className="py-24 px-6 md:px-12 bg-[#121212] relative z-20 overflow-hidden isolate">
-      <div className="max-w-7xl mx-auto">
+    <section id="dashboards" className="py-24 px-6 md:px-12 bg-[#121212] relative z-20 isolate overflow-hidden">
+      <AnimatedBackground variant="network" />
+      <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
           <p className="text-gradient-gold text-sm font-bold tracking-widest uppercase mb-2">Data Visualizations</p>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white">

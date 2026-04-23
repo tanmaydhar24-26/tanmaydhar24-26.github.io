@@ -13,10 +13,13 @@ const skills = [
   { name: "NLP", level: "INTERMEDIATE", icon: "🗣️" },
 ];
 
+import AnimatedBackground from "./AnimatedBackground";
+
 export default function Skills() {
   return (
     <section className="py-24 px-6 md:px-12 bg-[#121212] relative z-20 isolate overflow-hidden">
-      <div className="max-w-6xl mx-auto">
+      <AnimatedBackground variant="radar" />
+      <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16">
           <p className="text-gradient-gold text-sm font-bold tracking-widest uppercase mb-2">Technical Arsenal</p>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white">
