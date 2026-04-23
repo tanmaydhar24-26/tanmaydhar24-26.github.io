@@ -18,9 +18,11 @@ export default function Home() {
       <Header />
       
       {/* Dark Section: ScrollyCanvas & Overlay */}
-      <div id="home" className="h-[400vh]">
+      <div id="home" className="relative h-[400vh]">
         <ScrollyCanvas />
-        <Overlay />
+        <div className="absolute inset-0 pointer-events-none">
+          <Overlay />
+        </div>
       </div>
 
       {/* Dark Sections */}

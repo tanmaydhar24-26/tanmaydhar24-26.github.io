@@ -1,9 +1,10 @@
 "use client";
 
 import { useScroll, useMotionValueEvent } from "framer-motion";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 export default function Overlay() {
+  const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll();
   const [scroll, setScroll] = useState(0);
 
@@ -11,13 +12,16 @@ export default function Overlay() {
     setScroll(latest);
   });
 
-  // Calculate active sections based on exact scroll percentages
-  const isSection1 = scroll >= 0 && scroll < 0.15;
-  const isSection2 = scroll >= 0.15 && scroll < 0.50;
-  const isSection3 = scroll >= 0.50 && scroll < 0.85;
+  // Calculate active sections based on scroll percentages
+  // Section 1: 0 - 0.1
+  // Section 2: 0.1 - 0.2
+  // Section 3: 0.2 - 0.3
+  const isSection1 = scroll >= 0 && scroll < 0.10;
+  const isSection2 = scroll >= 0.10 && scroll < 0.20;
+  const isSection3 = scroll >= 0.20 && scroll < 0.30;
 
   return (
-    <div className="fixed inset-0 pointer-events-none flex flex-col justify-center items-center z-10 px-4 md:px-6">
+    <div ref={containerRef} className="sticky top-0 h-screen pointer-events-none flex flex-col justify-center items-center z-10 px-4 md:px-6">
       
       {/* Section 1 */}
       <div
