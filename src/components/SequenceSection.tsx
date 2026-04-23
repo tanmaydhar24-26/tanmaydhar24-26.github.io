@@ -96,9 +96,11 @@ function ThemeLayer({ theme }: { theme: JourneyTheme }) {
             className="w-1 bg-gradient-to-t from-[#2D6A4F] to-transparent"
             initial={{ height: 0 }}
             whileInView={{ height: `${30 + Math.random() * 60}%` }}
-            transition={{ duration: 1, delay: i * 0.1 }}
             animate={{ opacity: [0.2, 0.6, 0.2] }}
-            transition={{ duration: 3, repeat: Infinity, delay: i * 0.2 }}
+            transition={{ 
+              height: { duration: 1, delay: i * 0.1 },
+              opacity: { duration: 3, repeat: Infinity, delay: i * 0.2 }
+            }}
           />
         ))}
       </div>

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import React, { useRef, useState } from "react";
+import Image from "next/image";
 
 const TiltImage = () => {
   const cardRef = useRef<HTMLDivElement>(null);
@@ -49,13 +50,12 @@ const TiltImage = () => {
         <div className="absolute inset-0 border-2 border-[#2D6A4F] rounded-full transform translate-x-4 translate-y-4" style={{ transform: "translateZ(-20px) translateX(1rem) translateY(1rem)" }} />
         <div className="absolute inset-0 border border-[#C9A84C] rounded-full transform -translate-x-4 -translate-y-4" style={{ transform: "translateZ(-40px) translateX(-1rem) translateY(-1rem)" }} />
         <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-[#121212] shadow-[0_0_50px_rgba(45,106,79,0.5)]" style={{ transform: "translateZ(30px)" }}>
-          <img 
+          <Image 
             src="/profile.jpg" 
             alt="Tanmay Dhar" 
-            className="w-full h-full object-cover"
-            onError={(e) => {
-              (e.target as HTMLImageElement).src = 'https://via.placeholder.com/400x400.png?text=Tanmay+Dhar';
-            }}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 256px, 320px"
           />
         </div>
       </motion.div>

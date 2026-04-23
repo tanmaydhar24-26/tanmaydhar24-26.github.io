@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 const dashboards = [
   { src: "/dashboards/hr_analytics_dashboard.jpeg", title: "HR Analytics Dashboard" },
@@ -83,10 +84,12 @@ export default function Dashboards() {
                   <div className={`relative w-full aspect-video rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border ${isActive ? 'border-[#C9A84C]/50' : 'border-white/10'}`}>
                     {/* Dark overlay for inactive slides */}
                     {!isActive && <div className="absolute inset-0 bg-black/40 z-10" />}
-                    <img 
+                    <Image 
                       src={dash.src} 
                       alt={dash.title}
-                      className="w-full h-full object-cover"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 800px"
                     />
                   </div>
                   {isActive && (
@@ -132,7 +135,13 @@ export default function Dashboards() {
               onClick={() => setActiveIdx(i)}
               className={`relative h-16 w-24 flex-shrink-0 rounded-lg overflow-hidden transition-all duration-300 ${activeIdx === i ? 'ring-2 ring-[#C9A84C] scale-110 opacity-100' : 'opacity-40 hover:opacity-100'}`}
             >
-              <img src={dash.src} alt={dash.title} className="w-full h-full object-cover" />
+              <Image 
+                src={dash.src} 
+                alt={dash.title} 
+                fill 
+                className="object-cover" 
+                sizes="96px"
+              />
             </button>
           ))}
         </div>
