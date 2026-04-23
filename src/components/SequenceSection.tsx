@@ -281,7 +281,7 @@ function ThemeLayer({ theme }: { theme: JourneyTheme }) {
     );
   }
 
-  if (theme === "waterfall" || theme === "bar") {
+  if (theme === "bar") {
     return (
       <div className="absolute inset-0 -z-10 flex h-full items-end justify-around px-10 opacity-40">
         {[...Array(20)].map((_, i) => (
