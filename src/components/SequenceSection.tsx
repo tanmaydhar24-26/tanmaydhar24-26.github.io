@@ -21,7 +21,7 @@ const frameSrc = (frame: number) => {
 
 function ThemeLayer({ theme }: { theme: JourneyTheme }) {
   // Common Data Point Generator
-  const dots = [...Array(20)].map((_, i) => ({
+  const dots = [...Array(20)].map(() => ({
     x: Math.random() * 100,
     y: Math.random() * 100,
     size: Math.random() * 3 + 1
@@ -57,7 +57,7 @@ function ThemeLayer({ theme }: { theme: JourneyTheme }) {
         </div>
         {/* Right Side: Analytical Bar Group */}
         <div className="absolute bottom-1/4 -right-10 w-1/3 h-1/3 flex items-end justify-around gap-2 px-10">
-          {[...Array(12)].map((_, i) => (
+          {[...Array(12)].map((_unused, i) => (
             <motion.div
               key={i}
               className="flex-1 bg-gradient-to-t from-[#C9A84C] via-[#C9A84C]/20 to-transparent rounded-t-lg"
@@ -87,7 +87,7 @@ function ThemeLayer({ theme }: { theme: JourneyTheme }) {
       <div className="absolute inset-0 -z-10 opacity-50 overflow-hidden">
         {/* Full Screen Candlestick Matrix */}
         <div className="absolute inset-0 flex items-center justify-around px-4">
-          {[...Array(18)].map((_, i) => {
+          {[...Array(18)].map((_unused, i) => {
             const isUp = Math.random() > 0.4;
             return (
               <div key={i} className="flex flex-col items-center">
@@ -140,12 +140,12 @@ function ThemeLayer({ theme }: { theme: JourneyTheme }) {
         </div>
         {/* Side Metrics */}
         <div className="absolute left-10 top-1/2 -translate-y-1/2 flex flex-col gap-4">
-          {[...Array(4)].map((_, i) => (
+          {[...Array(4)].map((_unused, i) => (
             <motion.div key={i} className="h-1 bg-[#2D6A4F]/40 rounded" initial={{ width: 0 }} whileInView={{ width: 100 + i * 20 }} transition={{ delay: i * 0.2 }} />
           ))}
         </div>
         <div className="absolute right-10 top-1/2 -translate-y-1/2 flex flex-col gap-4 items-end">
-          {[...Array(4)].map((_, i) => (
+          {[...Array(4)].map((_unused, i) => (
             <motion.div key={i} className="h-1 bg-[#C9A84C]/40 rounded" initial={{ width: 0 }} whileInView={{ width: 80 + i * 30 }} transition={{ delay: i * 0.2 }} />
           ))}
         </div>
@@ -179,7 +179,7 @@ function ThemeLayer({ theme }: { theme: JourneyTheme }) {
         </div>
         {/* Right: Technical Stats Column */}
         <div className="absolute top-1/4 right-20 w-48 h-1/2 flex flex-col justify-between py-10">
-          {[...Array(6)].map((_, i) => (
+          {[...Array(6)].map((_unused, i) => (
             <div key={i} className="w-full space-y-1">
               <div className="flex justify-between text-[8px] text-[#C9A84C] font-mono">
                 <span>0{i+1}</span>
@@ -207,7 +207,7 @@ function ThemeLayer({ theme }: { theme: JourneyTheme }) {
       <div className="absolute inset-0 -z-10 opacity-50 overflow-hidden">
         {/* Left-to-Right Data Stream */}
         <svg className="w-full h-full">
-          {[...Array(10)].map((_, i) => {
+          {[...Array(10)].map((_unused, i) => {
             const y = 20 + i * 8;
             return (
               <motion.path
