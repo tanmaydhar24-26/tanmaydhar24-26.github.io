@@ -63,10 +63,104 @@ const TiltImage = () => {
   );
 };
 
+const BackgroundAnalytics = () => {
+  return (
+    <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-30 md:opacity-40">
+      {/* Left side: Animated Growth Arrow / Line Graph */}
+      <motion.svg 
+        className="absolute -left-10 md:left-10 top-20 w-64 h-64 md:w-96 md:h-96"
+        viewBox="0 0 200 200"
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1.5 }}
+      >
+        <motion.path
+          d="M 20 180 Q 80 160 120 100 T 180 20"
+          fill="transparent"
+          stroke="#2D6A4F"
+          strokeWidth="4"
+          strokeLinecap="round"
+          style={{ filter: "drop-shadow(0 0 8px rgba(45,106,79,0.5))" }}
+          initial={{ pathLength: 0 }}
+          whileInView={{ pathLength: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 2.5, ease: "easeInOut" }}
+        />
+        {/* Arrow head */}
+        <motion.polygon
+          points="180,20 160,30 175,45"
+          fill="#2D6A4F"
+          style={{ filter: "drop-shadow(0 0 8px rgba(45,106,79,0.5))" }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 2.2, duration: 0.5 }}
+        />
+        {/* Decorative Grid & Axes */}
+        <path d="M 20 20 v 160 h 160" fill="transparent" stroke="rgba(255,255,255,0.1)" strokeWidth="1.5" />
+        <path d="M 20 60 h 160 M 20 100 h 160 M 20 140 h 160" fill="transparent" stroke="rgba(255,255,255,0.05)" strokeWidth="1" strokeDasharray="4 4" />
+        <path d="M 60 20 v 160 M 100 20 v 160 M 140 20 v 160" fill="transparent" stroke="rgba(255,255,255,0.05)" strokeWidth="1" strokeDasharray="4 4" />
+      </motion.svg>
+
+      {/* Right side: 3D-ish Bar Chart */}
+      <motion.div 
+        className="absolute -right-4 md:right-10 bottom-10 flex items-end gap-3 w-56 h-48 md:w-80 md:h-64"
+        initial={{ opacity: 0, rotateY: 30, rotateX: 20 }}
+        whileInView={{ opacity: 1, rotateY: -15, rotateX: 10 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1.5 }}
+        style={{ perspective: 1000, transformStyle: "preserve-3d" }}
+      >
+        {[40, 75, 50, 95, 65].map((height, i) => (
+          <div key={i} className="flex-1 relative group" style={{ height: "100%", transformStyle: "preserve-3d" }}>
+            <motion.div
+              className="absolute bottom-0 w-full bg-gradient-to-t from-[#C9A84C]/10 to-[#C9A84C]/50 border border-[#C9A84C]/30 shadow-[0_0_15px_rgba(201,168,76,0.2)]"
+              style={{ transform: "translateZ(20px)" }}
+              initial={{ height: "0%" }}
+              whileInView={{ height: `${height}%` }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.5, delay: i * 0.2, type: "spring", bounce: 0.2 }}
+            >
+              {/* Top face of the 3D bar for that extra dimension */}
+              <div className="absolute top-0 left-0 w-full h-4 bg-[#C9A84C]/60 transform -translate-y-full origin-bottom rotate-x-90 skew-x-[45deg]" />
+              {/* Right face of the 3D bar */}
+              <div className="absolute top-0 right-0 w-4 h-full bg-[#C9A84C]/30 transform translate-x-full origin-left rotate-y-90 skew-y-[45deg]" />
+            </motion.div>
+          </div>
+        ))}
+      </motion.div>
+      
+      {/* Floating data nodes */}
+      {[...Array(8)].map((_, i) => (
+        <motion.div
+          key={`node-${i}`}
+          className="absolute w-1.5 h-1.5 rounded-full bg-[#2D6A4F]/60 shadow-[0_0_8px_rgba(45,106,79,0.8)]"
+          style={{
+            left: `${10 + Math.random() * 80}%`,
+            top: `${10 + Math.random() * 80}%`,
+          }}
+          animate={{
+            y: [0, -30, 0],
+            x: [0, Math.random() * 20 - 10, 0],
+            opacity: [0.2, 0.8, 0.2]
+          }}
+          transition={{
+            duration: 4 + Math.random() * 3,
+            repeat: Infinity,
+            delay: Math.random() * 2
+          }}
+        />
+      ))}
+    </div>
+  );
+};
+
 export default function About() {
   return (
     <section className="py-24 px-6 md:px-12 bg-[#121212] relative z-20 isolate overflow-hidden">
-      <div className="max-w-6xl mx-auto">
+      <BackgroundAnalytics />
+      <div className="max-w-6xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
           {/* Left: Image */}
