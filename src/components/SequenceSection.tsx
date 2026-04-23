@@ -99,9 +99,11 @@ function ThemeLayer({ theme }: { theme: JourneyTheme }) {
                 strokeWidth="0.5"
                 initial={{ pathLength: 0, opacity: 0 }}
                 whileInView={{ pathLength: 1, opacity: 0.4 }}
-                transition={{ duration: 3, delay: i * 0.1 }}
                 animate={{ opacity: [0.1, 0.4, 0.1] }}
-                transition={{ duration: 5, repeat: Infinity, delay: i * 0.2 }}
+                transition={{ 
+                  pathLength: { duration: 3, delay: i * 0.1 },
+                  opacity: { duration: 5, repeat: Infinity, delay: i * 0.2 }
+                }}
               />
             );
           })}
