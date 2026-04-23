@@ -27,13 +27,13 @@ export default function Home() {
 
       {/* Dark Sections */}
       <div className="relative z-20">
-        <SequenceSection id="about" theme="tiles"><About /></SequenceSection>
+        <SequenceSection id="about" theme="about"><About /></SequenceSection>
         <SequenceSection id="skills" theme="radar"><Skills /></SequenceSection>
-        <SequenceSection id="experience" theme="nodes"><Experience /></SequenceSection>
+        <SequenceSection id="experience" theme="waterfall"><Experience /></SequenceSection>
         <SequenceSection id="education" theme="scatter"><Education /></SequenceSection>
-        <SequenceSection id="projects" theme="graphs"><Projects /></SequenceSection>
+        <SequenceSection id="projects" theme="nodes"><Projects /></SequenceSection>
         <SequenceSection id="dashboards" theme="bar"><Dashboards /></SequenceSection>
-        <SequenceSection id="contact" theme="waterfall"><Contact /></SequenceSection>
+        <SequenceSection id="contact" theme="graphs"><Contact /></SequenceSection>
       </div>
     </main>
   );
