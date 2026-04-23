@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { FaLinkedin } from "react-icons/fa";
 
 const frameSrc = (frame: number) => {
   const bounded = Math.max(0, Math.min(119, frame));
