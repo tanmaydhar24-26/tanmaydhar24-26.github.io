@@ -125,7 +125,7 @@ export default function Header() {
         animate={{ backgroundPosition: ["40% 35%", "60% 45%", "40% 35%"] }}
         transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
       />
-      <div className="max-w-7xl mx-auto px-4 lg:px-6 h-16 lg:h-20 flex items-center justify-between relative">
+      <div className="max-w-7xl mx-auto px-4 lg:px-6 h-16 lg:h-20 flex items-center justify-center relative">
         <nav className="hidden lg:flex items-center gap-4">
           {links.map((link) => (
             <NavTab
@@ -154,18 +154,6 @@ export default function Header() {
             ))}
           </div>
         </nav>
-
-        <div className="flex items-center ml-4">
-          <a 
-            href="https://www.linkedin.com/in/tanmay-dhar-business-analyst-data-scientist-data-analyst" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-[#C9A84C] hover:text-white text-2xl transition-colors"
-            title="LinkedIn Profile"
-          >
-            <FaLinkedin />
-          </a>
-        </div>
       </div>
     </motion.header>
   );

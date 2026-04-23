@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
 
-type JourneyTheme = "tiles" | "graphs" | "waterfall" | "bar" | "line" | "radar" | "scatter" | "nodes" | "about";
+type JourneyTheme = "tiles" | "graphs" | "waterfall" | "bar" | "line" | "radar" | "scatter" | "nodes" | "about" | "candle" | "pie" | "histogram" | "stacked";
 
 type SequenceSectionProps = {
   id: string;
@@ -20,10 +20,142 @@ const frameSrc = (frame: number) => {
 };
 
 function ThemeLayer({ theme }: { theme: JourneyTheme }) {
-  if (theme === "about" || theme === "graphs") {
+  if (theme === "about") {
     return (
       <div className="absolute inset-0 -z-10 opacity-50 overflow-hidden">
-        {/* Trading Lines */}
+        {/* Top-Left: Small Trading Line */}
+        <div className="absolute top-20 left-10 w-1/3 h-1/4">
+          <svg className="w-full h-full" viewBox="0 0 400 200" preserveAspectRatio="none">
+            <motion.path
+              d="M0,150 L50,130 L100,140 L150,110 L200,120 L250,90 L300,100 L350,70 L400,80"
+              fill="none"
+              stroke="#C9A84C"
+              strokeWidth="3"
+              style={{ filter: "drop-shadow(0 0 5px rgba(201,168,76,0.4))" }}
+              initial={{ pathLength: 0 }}
+              whileInView={{ pathLength: 1 }}
+              transition={{ duration: 2 }}
+            />
+          </svg>
+        </div>
+        {/* Bottom-Right: Bar Chart */}
+        <div className="absolute bottom-20 right-10 w-1/3 h-1/4 flex items-end justify-around">
+          {[...Array(8)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="w-4 md:w-8 bg-gradient-to-t from-[#C9A84C] to-transparent rounded-t"
+              initial={{ height: 0 }}
+              whileInView={{ height: `${30 + Math.random() * 70}%` }}
+              transition={{ duration: 1, delay: i * 0.1 }}
+            />
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  if (theme === "candle") {
+    return (
+      <div className="absolute inset-0 -z-10 flex items-center justify-around px-10 opacity-40">
+        {[...Array(12)].map((_, i) => {
+          const isUp = Math.random() > 0.4;
+          const height = 40 + Math.random() * 60;
+          return (
+            <div key={i} className="flex flex-col items-center gap-1">
+              <motion.div className={`w-0.5 h-10 ${isUp ? 'bg-[#2D6A4F]' : 'bg-[#C9A84C]'}`} initial={{ scaleY: 0 }} whileInView={{ scaleY: 1 }} />
+              <motion.div 
+                className={`w-4 md:w-8 rounded-sm ${isUp ? 'bg-[#2D6A4F]/60 border border-[#2D6A4F]' : 'bg-[#C9A84C]/60 border border-[#C9A84C]'}`}
+                initial={{ height: 0 }}
+                whileInView={{ height: `${height}px` }}
+                transition={{ duration: 1, delay: i * 0.05 }}
+              />
+              <motion.div className={`w-0.5 h-10 ${isUp ? 'bg-[#2D6A4F]' : 'bg-[#C9A84C]'}`} initial={{ scaleY: 0 }} whileInView={{ scaleY: 1 }} />
+            </div>
+          );
+        })}
+      </div>
+    );
+  }
+
+  if (theme === "pie") {
+    return (
+      <div className="absolute inset-0 -z-10 flex items-center justify-center opacity-40">
+        <svg className="w-80 h-80" viewBox="0 0 100 100">
+          <motion.circle
+            cx="50" cy="50" r="40"
+            fill="transparent"
+            stroke="#2D6A4F"
+            strokeWidth="10"
+            strokeDasharray="251"
+            initial={{ strokeDashoffset: 251 }}
+            whileInView={{ strokeDashoffset: 100 }}
+            transition={{ duration: 2 }}
+          />
+          <motion.circle
+            cx="50" cy="50" r="40"
+            fill="transparent"
+            stroke="#C9A84C"
+            strokeWidth="10"
+            strokeDasharray="251"
+            initial={{ strokeDashoffset: 251 }}
+            whileInView={{ strokeDashoffset: 200 }}
+            transition={{ duration: 2, delay: 0.5 }}
+          />
+        </svg>
+      </div>
+    );
+  }
+
+  if (theme === "histogram") {
+    return (
+      <div className="absolute inset-0 -z-10 flex items-end opacity-30">
+        {[...Array(40)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="flex-1 bg-[#C9A84C] border-r border-black/20"
+            initial={{ height: 0 }}
+            whileInView={{ height: `${20 + Math.sin(i * 0.5) * 40 + Math.random() * 20}%` }}
+            transition={{ duration: 1.5, delay: i * 0.02 }}
+          />
+        ))}
+      </div>
+    );
+  }
+
+  if (theme === "stacked") {
+    return (
+      <div className="absolute inset-0 -z-10 flex items-end justify-around px-10 opacity-40">
+        {[...Array(10)].map((_, i) => (
+          <div key={i} className="w-8 md:w-16 flex flex-col gap-0.5">
+            <motion.div className="bg-[#2D6A4F]" initial={{ height: 0 }} whileInView={{ height: `${Math.random() * 40}px` }} />
+            <motion.div className="bg-[#C9A84C]" initial={{ height: 0 }} whileInView={{ height: `${Math.random() * 60}px` }} />
+            <motion.div className="bg-gray-600" initial={{ height: 0 }} whileInView={{ height: `${Math.random() * 30}px` }} />
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  if (theme === "waterfall") {
+    return (
+      <div className="absolute inset-0 -z-10 flex flex-col justify-center gap-2 px-20 opacity-40">
+        {[...Array(8)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="h-8 bg-gradient-to-r from-[#2D6A4F] to-transparent rounded-r"
+            initial={{ width: 0 }}
+            whileInView={{ width: `${30 + i * 8}%` }}
+            transition={{ duration: 1, delay: i * 0.1 }}
+            style={{ marginLeft: `${i * 10}%` }}
+          />
+        ))}
+      </div>
+    );
+  }
+
+  if (theme === "graphs") {
+    return (
+      <div className="absolute inset-0 -z-10 opacity-40">
         <svg className="w-full h-full" viewBox="0 0 1000 1000" preserveAspectRatio="none">
           <motion.path
             d="M0,600 L100,520 L200,550 L300,480 L400,510 L500,420 L600,450 L700,380 L800,410 L900,320 L1000,350"
@@ -46,7 +178,6 @@ function ThemeLayer({ theme }: { theme: JourneyTheme }) {
             transition={{ duration: 4, ease: "linear", delay: 0.5 }}
           />
         </svg>
-        {/* Background Bars */}
         <div className="absolute bottom-0 left-0 w-full flex items-end justify-around h-1/3 px-10 opacity-30">
           {[...Array(15)].map((_, i) => (
             <motion.div
