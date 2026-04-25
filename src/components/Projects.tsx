@@ -6,6 +6,12 @@ import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 const projects = [
   {
+    title: "Workforce Collapse Risk & Profit Leakage",
+    description: "Analyzed workforce data of 1,000 employees to uncover attrition risk (27.9%), burnout (29.2%), and profit leakage due to misaligned compensation.",
+    tags: ["People Analytics", "Business Risk", "Excel", "Data Science"],
+    link: "https://github.com/TanmayDhar36/Workforce-Collapse-Risk-Profit-Leakage-Analysis"
+  },
+  {
     title: "Forecasting India's EV Future",
     description: "Predicted EV market growth to ₹5 lakh crore by 2030 (36% CAGR) using time-series forecasting models on 2001–2024 data.",
     tags: ["Time Series", "Machine Learning", "Python"],

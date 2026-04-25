@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
 const dashboards = [
+  { src: "/dashboards/workforce_risk_dashboard.png", title: "Workforce Risk Analysis" },
   { src: "/dashboards/hr_analytics_dashboard.jpeg", title: "HR Analytics Dashboard" },
   { src: "/dashboards/orderflow_dashboard.jpeg", title: "Order Flow Dashboard" },
   { src: "/dashboards/unemployment_dashboard.jpeg", title: "Unemployment Analysis" },
